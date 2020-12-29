@@ -14,19 +14,19 @@ sudo apt install apache2 libapache2-mod-wsgi-py3
 sudo pip3 install requests flask pandas
 ```
 
-## Copy Basic Apache config for FlaskApp
+## Copy Basic Apache config for mycompany
 
 ```
 <VirtualHost *:80>
 		ServerName mywebsite.com
 		ServerAdmin admin@mywebsite.com
-		WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
-		<Directory /var/www/FlaskApp/FlaskApp/>
+		WSGIScriptAlias / /var/www/mycompany/mycompany.wsgi
+		<Directory /var/www/mycompany/mycompany/>
 			Order allow,deny
 			Allow from all
 		</Directory>
-		Alias /static /var/www/FlaskApp/FlaskApp/static
-		<Directory /var/www/FlaskApp/FlaskApp/static/>
+		Alias /static /var/www/mycompany/mycompany/static
+		<Directory /var/www/mycompany/mycompany/static/>
 			Order allow,deny
 			Allow from all
 		</Directory>
@@ -39,7 +39,7 @@ sudo pip3 install requests flask pandas
 ## Enable FlaskApp on Apache
 
 ```
-sudo a2ensite FlaskApp
+sudo a2ensite mycompany
 sudo systemctl reload apache2
 ```
 
@@ -47,20 +47,40 @@ sudo systemctl reload apache2
 
 ```
 cd /var/www/
-mkdir -p FlaskApp/FlaskApp
-sudo vi FlaskApp.wsgi
+mkdir -p mycompany/mycompany
+sudo vi mycompany/mycompany.wsgi
 
 ----------------------------------------
 #!/usr/bin/python3
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/var/www/FlaskApp/")
+sys.path.insert(0,"/var/www/mycompany/mycompany")
 
-from FlaskApp import app as application
+from mycompany import app as application
 application.secret_key = 'Add your secret key'
 ----------------------------------------
 :wq
 
+sudo chmod -R www-data:www-data mycompany/
+sudo chmod -R www-data:www-data mycompany/*
 sudo service apache2 restart
 ```
+
+## Basic Flask App
+
+sudo vi /var/www/mycompany/mycompany/__init__.py
+sudo vi /var/www/mycompany/mycompany/mycompany.py
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def demo():
+    return F"<h1> My company is under construction, please check back later <h1>", 200
+
+if __name__ == '__main__':
+    app.run()
+```
+
