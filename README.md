@@ -51,7 +51,6 @@ mkdir -p FlaskApp/FlaskApp
 sudo vi FlaskApp.wsgi
 
 ----------------------------------------
-
 #!/usr/bin/python3
 import sys
 import logging
@@ -60,8 +59,8 @@ sys.path.insert(0,"/var/www/FlaskApp/")
 
 from FlaskApp import app as application
 application.secret_key = 'Add your secret key'
-
 ----------------------------------------
+:wq
 
 sudo service apache2 restart
 ```
