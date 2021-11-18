@@ -78,6 +78,9 @@ salt
 
 #### Screen 1 (Old Net)
 
+```plantuml
+@startuml
+salt
 {+
   .
   .
@@ -113,7 +116,7 @@ salt
   
   [Deploy]
 }
-
+```
 
 #### Notes
 - The workflow will only allow the following limited set of options to be specified:
