@@ -76,19 +76,13 @@ salt
 }@enduml
 ```
 
-```plantuml
-
-@startuml
-salt
-{+
-  Login    | "MyName   "
-  Password | "****     "
-  [Cancel] | [  OK   ]
-}
-@enduml
-
-```
-
+PS:
+- The following options will be provided for addition:
+++ DNS Servers
+++ Minimum Lease Time
+++ Maximum Lease Time
+++ Domain Name
+++ TFTP Server
 
 ## Install Python3 and Apache with WSGI
 
