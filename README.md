@@ -77,7 +77,7 @@ salt
 ```
 
 PS:
-- The following options will be provided for addition:
++ The workflow will only allow the following limited set of options to be specified:
 ++ DNS Servers
 ++ Minimum Lease Time
 ++ Maximum Lease Time
