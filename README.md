@@ -1,13 +1,15 @@
 # flask-apache-setup
 
 ```plantuml
-@startsalt
+
+@startuml
 {+
   Login    | "MyName   "
   Password | "****     "
   [Cancel] | [  OK   ]
 }
-@endsalt
+@enduml
+
 ```
 
 
