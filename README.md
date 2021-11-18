@@ -1,5 +1,71 @@
 # flask-apache-setup
 
+# Petsmart Requirements
+
+Petsmart as requested for the following workflows on BlueCat Gateway to support automation of their new store automation
+
+## Workflow - New Store Setup
+
+### Overview
+This workflow handles the following
++ Provides the user an interface to add a new IP4Block for a new store
++ Provides the user with a set of networks as specified by the new-store network breakup
++ Provides the user with a set of DHCP scopes as specified by the new-store DHCP breakup
++ Provides the user with a set of options as specified by the new-store options 
++ Provides the user an interface to add a new IP4Network according to the old-net criteria
+
+### UI
+ 
+#### Screen 1
+
+The user needs to enter the CIDR and select either a new-net or old-net format.
+The screen automatically presents the user with the criteria for a new store.
+
+```plantuml
+@startuml
+salt
+{+
+  .
+  .
+  New Store Block | . 
+  " 10.0.0.0/24 " | .
+  (X) newnet 
+  () old-net
+  ==
+  .
+  .
+  The following networks will be created:
+  ==
+  {
+  
+  network       | DHCP Range  | Name | Actions
+  .. | .. | .. | ..
+  10.0.0.0/27   |  .4-23	  |	Mgmt//Vlan5 | merge/split/delete		
+	10.0.0.32/27  |  .34-58		|Guest//Vlan10	| merge/split/delete	
+	10.0.0.64/28  |	 .68-78		|PinPads//Vlan15		| merge/split/delete
+	10.0.0.80/28  |  .82-92		|Wireless-WPA-Only//Vlan50		| merge/split/delete
+	10.0.0.96/28  |  .98-108	| Wireless-WPA-Migration//Vlan55	| merge/split/delete
+	10.0.0.112/28 |	 .114-124	| DMZ//Vlan25		| merge/split/delete
+	10.0.0.128/27 |	 .130-156	| Voice//Vlan20		| merge/split/delete
+	10.0.0.160/27 |	 .162-188	| Devices//Vlan40	| merge/split/delete
+	10.0.0.192/29 |		na      | Wireless Phone Reg//Vlan35	| merge/split/delete
+	10.0.0.208/28 |	 .210-220	| Omni//Vlan90		| merge/split/delete
+	10.0.0.224/29	|	 .226-228	| Omni-Staging//Vlan80 | merge/split/delete
+  }
+  ==
+  .
+  .
+  The following options will be added:
+  ==
+  {
+  }
+  
+  
+  [Cancel] | [  OK   ]
+}
+@enduml
+```
+
 ```plantuml
 
 @startuml
