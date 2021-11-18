@@ -58,12 +58,22 @@ salt
   The following options will be added:
   ==
   {
+    network | option | Option Value
+    .. | .. | ..
+    10.0.0.32/27 (Guest//Vlan10) | ^dns-server^ | 8.8.8.8, 4.4.4.4
+    10.0.0.80/28 (Wireless-WPA-Only//Vlan50)	| ^domain-name^ | petstores.petsmart.com	
+	  10.0.0.96/28 (Wireless-WPA-Migration//Vlan55) | ^domain-name^ | petstores.petsmart.com
+	  10.0.0.208/28 (Omni//Vlan90) | ^domain-name^ | petstores.petsmart.com
+	  10.0.0.224/29	(Staging//Vlan80)	| ^domain-name^ | petstores.petsmart.com
+    10.0.0.128/27 (Voice//Vlan20) | ^tftp-server^ | x.x.x.x	
+    10.0.0.208/28 (Omni//Vlan90) | ^dns-server^ | x.x.x.x, y.y.y.y
+    .. | .. | ..
+    [more options]
   }
+  ==
   
-  
-  [Cancel] | [  OK   ]
-}
-@enduml
+  [Deploy]
+}@enduml
 ```
 
 ```plantuml
