@@ -3,6 +3,7 @@
 ```plantuml
 
 @startuml
+salt
 {+
   Login    | "MyName   "
   Password | "****     "
