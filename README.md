@@ -78,11 +78,11 @@ salt
 
 PS:
 + The workflow will only allow the following limited set of options to be specified:
-++ DNS Servers
-++ Minimum Lease Time
-++ Maximum Lease Time
-++ Domain Name
-++ TFTP Server
+  ++ DNS Servers
+  ++ Minimum Lease Time
+  ++ Maximum Lease Time
+  ++ Domain Name
+  ++ TFTP Server
 
 ## Install Python3 and Apache with WSGI
 
