@@ -1,13 +1,15 @@
 # flask-apache-setup
 
+```plantuml
 @startsalt
 {+
-   This is a long
-   text in a textarea
-   .
-   "                         "
+  Login    | "MyName   "
+  Password | "****     "
+  [Cancel] | [  OK   ]
 }
 @endsalt
+```
+
 
 ## Install Python3 and Apache with WSGI
 
