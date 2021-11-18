@@ -16,7 +16,7 @@ This workflow handles the following
 
 ### UI
  
-#### Screen 1
+#### Screen 1 (New-Net)
 
 The user needs to enter the CIDR and select either a new-net or old-net format.
 The screen automatically presents the user with the criteria for a new store.
@@ -27,7 +27,7 @@ salt
 {+
   .
   .
-  New Store Block | . 
+  New Store | . 
   " 10.0.0.0/24 " | .
   (X) newnet 
   () old-net
@@ -76,13 +76,58 @@ salt
 }@enduml
 ```
 
-PS:
+#### Screen 1 (Old Net)
+
+{+
+  .
+  .
+  New Store | . 
+  " 10.0.0.0/24 " | .
+  () newnet 
+  (X) old-net
+  ==
+  .
+  .
+  The following network will be created:
+  ==
+  {!
+  
+  network  |  DHCP Range | Name | Custom Gateway
+  .. | .. | .. | .. 
+  10.0.0.0/24   |  .20-150	  |	0875//old-net | 10.0.0.254		
+	}
+  
+  ==
+  .
+  .
+  DHCP Exclusions:
+  ==
+  {
+    start | end 
+    .. | .. 
+    10.0.0.40 | 10.0.0.99 
+    .. | .. | ..
+    [+ more exclusions]
+  }
+  ==
+  
+  [Deploy]
+}
+
+
+#### Notes
 - The workflow will only allow the following limited set of options to be specified:
   - DNS Servers
   - Minimum Lease Time
   - Maximum Lease Time
   - Domain Name
   - TFTP Server
+
+- The following parameters on screen 1 will be editable to allow for changes
+  - Name
+  - DHCP Range
+  - start / end of DHCP Exclusions
+  - DHCP / DNS option values
 
 ## Install Python3 and Apache with WSGI
 
