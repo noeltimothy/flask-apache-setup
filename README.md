@@ -1,5 +1,5 @@
 # flask-apache-setup
-
+This is a simple minimal guide that can be used to deploy flask using apache on a server. 
 
 ## Install Python3 and Apache with WSGI
 
@@ -61,7 +61,6 @@ sys.path.insert(0,"/var/www/mycompany/mycompany")
 from mycompany import app as application
 application.secret_key = 'Add your secret key'
 ----------------------------------------
-:wq
 
 sudo chmod -R www-data:www-data mycompany/
 sudo chmod -R www-data:www-data mycompany/*
